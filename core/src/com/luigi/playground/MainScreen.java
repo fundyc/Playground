@@ -97,14 +97,14 @@ public class MainScreen implements Screen {
             }
             game.batch.draw(missileTexture, missile.x, missile.y);
         }
-        game.font.draw(game.batch, "deaths = " + deathsCount, 10, 470);
+        game.font.draw(game.batch, "hits = " + deathsCount, 10, 470);
         game.font.draw(game.batch, "points = " + pointsCount, 300, 470);
         game.batch.end();
 
     }
 
     private void launchAnotherMissile() {
-        if (TimeUtils.millis() - lastMissileLaunched > 1250) {
+        if (TimeUtils.millis() - lastMissileLaunched > 1250 - pointsCount*10) {
             spamMissile();
         }
     }
